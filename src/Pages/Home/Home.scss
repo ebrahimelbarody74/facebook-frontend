@@ -1,0 +1,15 @@
+.home{
+    .box{
+        display: flex;
+        .leftBar{
+            flex: 2 1 ;
+        }
+        .homePage{
+            flex: 6 1;
+            background-color: #f6f3f3;
+        }
+        .rightBar{
+            flex: 3 1 ;
+        }
+    }
+}

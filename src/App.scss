@@ -1,0 +1,136 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+a{
+  text-decoration: none;
+  color: #000;
+}
+ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  font-family: "Open Sans", sans-serif;
+
+}
+
+
+.theme-dark{
+  .post{
+    background-color: #000 !important;
+    color: #fff !important;
+  }
+  a{
+    color: #fff;
+  }
+  .profile{
+    background-color: #333 !important;
+  }
+  .profileContainer{
+    background-color: #333 !important;
+
+  }
+  .homePage{
+    background-color: #333 !important;
+    .share{
+      background-color: #000 !important;
+      color: #fff !important;
+      input{
+        background-color: #000 !important;
+      }
+    }
+  }
+  .navbar{
+    background-color: #000 !important;
+    color: #fff !important;
+    h3{
+    color: #fff !important;
+    }
+    input{
+      background-color: #000;
+    }
+  }
+  .leftBar{
+    background-color: #000 !important;
+    color: #fff !important;
+  }
+
+  .rightBar{
+    background-color: #333 !important;
+    color: #fff !important;
+    .item{
+      background-color: #000 !important;
+    }
+  }
+  .profilePage{
+    background-color: #000 !important;
+    color: #fff !important;
+    .uInfo{
+      background-color: #000 !important;
+      color: #fff !important;
+
+    }
+  }
+}
+
+// .theme-light{
+//   .post{
+//     background-color: #fff !important;
+//     color: #000 !important;
+//   }
+//   a{
+//     color: #fff;
+//   }
+//   .profile{
+//     background-color: #000 !important;
+//   }
+//   .profileContainer{
+//     background-color: #333 !important;
+
+//   }
+//   .homePage{
+//     background-color: #333 !important;
+//     .share{
+//       background-color: #000 !important;
+//       color: #fff !important;
+//       input{
+//         background-color: #000 !important;
+//       }
+//     }
+//   }
+//   .navbar{
+//     background-color: #000 !important;
+//     color: #fff !important;
+//     h3{
+//     color: #fff !important;
+//     }
+//     input{
+//       background-color: #000;
+//     }
+//   }
+//   .leftBar{
+//     background-color: #000 !important;
+//     color: #fff !important;
+//   }
+
+//   .rightBar{
+//     background-color: #333 !important;
+//     color: #fff !important;
+//     .item{
+//       background-color: #000 !important;
+//     }
+//   }
+//   .profilePage{
+//     background-color: #000 !important;
+//     color: #fff !important;
+//     .uInfo{
+//       background-color: #000 !important;
+//       color: #fff !important;
+
+//     }
+//   }
+// }

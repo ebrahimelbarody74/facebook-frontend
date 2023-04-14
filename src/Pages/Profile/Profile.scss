@@ -1,0 +1,15 @@
+.profile{
+    .box{
+        display: flex;
+        .leftBar{
+            flex: 2 1 0%;
+        }
+        .profilePage{
+            flex: 6 1 0%;
+            background-color: #f6f3f3;
+        }
+        .rightBar{
+            flex: 3 1 0%;
+        }
+    }
+}
