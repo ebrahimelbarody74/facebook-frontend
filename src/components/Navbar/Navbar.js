@@ -17,7 +17,6 @@ function Navbar() {
   // const { dark, toggle } = useContext(DarkMdeContext);
   const dark = useSelector((state) => state.dark.dark);
   useEffect(() => {
-    console.log(dark);
   }, [dark]);
 
   const dispatch = useDispatch();

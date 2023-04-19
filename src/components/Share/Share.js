@@ -3,7 +3,10 @@ import "./Share.scss";
 import Image from "../../assets/img.png";
 import Map from "../../assets/map.png";
 import Friend from "../../assets/friend.png";
-function Share({ setShare,handelShare }) {
+import Cancel from "@mui/icons-material/Cancel";
+import { useSelector } from "react-redux";
+function Share({ setShare, handelShare, share, setFile, file }) {
+  const { currentUser } = useSelector((state) => state.auth);
   return (
     <div className="share">
       <div className="container">
@@ -14,14 +17,26 @@ function Share({ setShare,handelShare }) {
           />
           <input
             type="text"
-            placeholder="what's on your mind Johan Doe?"
+            placeholder={`what's on your mind ${currentUser.username}?`}
+            value={share}
             onChange={(e) => setShare(e.target.value)}
           />
         </div>
         <hr />
+        {file && (
+          <div className="shareImgContainer">
+            <img className="shareImg" src={URL.createObjectURL(file)} alt="" />
+            <Cancel className="shareCancelImg" onClick={() => setFile(null)} />
+          </div>
+        )}
         <div className="bottom">
           <div className="left">
-            <input type="file" id="file" />
+            <input
+              type="file"
+              id="file"
+              accept=".png,.jpeg,.jpg"
+              onChange={(e) => setFile(e.target.files[0])}
+            />
             <label htmlFor="file">
               <img src={Image} />
               <span>Add Image</span>

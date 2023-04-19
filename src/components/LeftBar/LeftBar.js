@@ -15,9 +15,10 @@ import Courses from "../../assets/12.png";
 import Fund from "../../assets/13.png";
 
 import { AuthContext } from "../../context/authContext";
+import { useSelector } from "react-redux";
 
 function LeftBar() {
-  const { currentUser } = useContext(AuthContext);
+  const { currentUser } = useSelector((state) => state.auth);
   return (
     <div className="leftBar">
       <div className="container">
