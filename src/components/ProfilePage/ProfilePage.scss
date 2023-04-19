@@ -48,3 +48,16 @@
         }
     }
 }
+
+
+@media(max-width:"600px"){
+    .profileContainer{
+        padding: 10px 30px !important;
+    }
+  }
+
+  @media(max-width:"450px"){
+    .profileContainer{
+        padding: 10px 10px !important;
+    }
+  }

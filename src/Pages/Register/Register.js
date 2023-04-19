@@ -38,7 +38,7 @@ function Register() {
           <h1>Orico Social.</h1>
           <p>Welcome to Orico </p>
           <span>Do you have an account?</span>
-          <Link to="/">Login</Link>
+          <Link to="/login">Login</Link>
         </div>
         <div className="right">
           <form>

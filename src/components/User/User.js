@@ -10,7 +10,6 @@ function User({ person }) {
     person.followers.includes(currentUser._id)
   );
   const handleClick = async () => {
-    console.log(followed);
     try {
       if (followed) {
         const res = await axios.put(
@@ -19,7 +18,6 @@ function User({ person }) {
             userId: currentUser._id,
           }
         );
-        console.log(res);
       } else {
         const res = await axios.put(
           `http://localhost:8800/api/users/${person._id}/follow`,
@@ -27,7 +25,6 @@ function User({ person }) {
             userId: currentUser._id,
           }
         );
-        console.log(res);
       }
       setFollowed((prev) => !prev);
     } catch (err) {

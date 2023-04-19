@@ -1,4 +1,4 @@
-.rightBar{
+.rightBarHome{
     background-color: #f6f3f3;
     overflow: scroll;
     height: calc(100vh - 57px);
@@ -191,4 +191,10 @@
 
 .mantine-Modal-inner{
   top: 20px !important;
+}
+
+@media(max-width:"900px"){
+  .rightbar{
+    display: none;
+  }
 }

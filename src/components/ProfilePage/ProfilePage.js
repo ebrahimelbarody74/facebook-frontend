@@ -15,10 +15,14 @@ import { AuthContext } from "../../context/authContext";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Share from "../Share/Share";
-function ProfilePage() {
+function ProfilePage({ user }) {
   const { currentUser } = useSelector((state) => state.auth);
   const username = useParams().username;
   const [posts, setPosts] = useState();
+  const [share, setShare] = useState("");
+  const [file, setFile] = useState(null);
+
+  // posts profile
   useEffect(() => {
     const setPost = async () => {
       try {
@@ -33,10 +37,14 @@ function ProfilePage() {
       }
     };
     setPost();
+    console.log(posts);
+    console.log(username);
   }, [username]);
 
-  const [share, setShare] = useState("");
-  const [file, setFile] = useState(null);
+  //share
+  const [followed, setFollowed] = useState(async () => {
+    await setFollowed(user.followers.includes(currentUser._id));
+  });
 
   const handelShare = async () => {
     const newPost = {
@@ -70,6 +78,36 @@ function ProfilePage() {
     };
     setPost();
   };
+
+  const handleClick = async () => {
+    try {
+      if (followed) {
+        await axios.put(
+          `http://localhost:8800/api/users/${user._id}/unfollow`,
+          {
+            userId: currentUser._id,
+          }
+        );
+      } else {
+        await axios.put(`http://localhost:8800/api/users/${user._id}/follow`, {
+          userId: currentUser._id,
+        });
+      }
+      setFollowed((prev) => !prev);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    const getCurrentUser = async () => {
+      try {
+        const res = await axios.get("/users/" + currentUser._id);
+        localStorage.setItem("user", JSON.stringify(res.data));
+      } catch (err) {}
+    };
+    getCurrentUser();
+  }, [followed]);
 
   return (
     <div className="profilePage">
@@ -133,7 +171,17 @@ function ProfilePage() {
                     </a>
                   </li>
                   <li>
-                    <button>Follow</button>
+                    <div className="buttons" onClick={handleClick}>
+                      <button
+                        className={
+                          followed
+                            ? "button fc-button UnfollowButton"
+                            : "button followButton fc-button"
+                        }
+                      >
+                        {followed ? "Unfollow" : "Follow"}
+                      </button>
+                    </div>
                   </li>
                 </ul>
               </div>

@@ -28,7 +28,6 @@ function Posts({ post }) {
     };
     fetchUser();
   }, [post?.userId]);
-  console.log(user);
 
   const likeHandler = () => {
     try {

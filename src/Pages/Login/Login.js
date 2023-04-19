@@ -24,20 +24,7 @@ function Login() {
       password,
     });
 
-    console.log(currentUser);
-    // const getUser = async () => {
-    //   try {
-    //     const res = await axios.post(
-    //       "/auth/login",
-    //       data
-    //     );
-    //     login(res.data);
-    //     navigate("/");
-    //   } catch (err) {
-    //     console.log(err);
-    //   }
-    // };
-    // getUser();
+
   };
   return (
     <div className="login">
@@ -46,7 +33,7 @@ function Login() {
           <h1>Hello World.</h1>
           <p>Welcome to Orico </p>
           <span>Don't you have an account?</span>
-          <Link to="register">Register</Link>
+          <Link to="/register">Register</Link>
         </div>
         <div className="right">
           <h2>Login</h2>

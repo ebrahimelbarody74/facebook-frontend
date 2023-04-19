@@ -39,7 +39,7 @@ function RightBar({ user, location }) {
 
   const HomeRightbar = () => {
     return (
-      <div className="rightBar">
+      <div className="rightBarHome">
         <div className="container">
           <div className="item">
             <h3>Suggestions For You</h3>
@@ -54,7 +54,7 @@ function RightBar({ user, location }) {
                 })}
             {!location && (
               <span
-                style={{ cursor: "pointer",textAlign:"center" }}
+                style={{ cursor: "pointer", textAlign: "center" }}
                 onClick={() => setModalOpened(true)}
               >
                 Show More

@@ -46,6 +46,11 @@
             gap: 2rem;
             padding: 50px;
             background-color: #fff;
+            form{
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
             input{
                 padding: 20px 10px;
                 border: none;
@@ -60,6 +65,36 @@
                 cursor: pointer;
             }
 
+        }
+    }
+}
+
+@media(max-width:"1080px"){
+    .login{
+        .box{
+            width: 70%;
+            flex-direction: column-reverse;
+            .right{
+                form{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+                }
+                text-align: center;
+                button{
+                    margin: auto;
+                }
+            }
+        }
+    }
+}
+@media(max-width:"770px"){
+    .login{
+        .box{
+            .left{
+                display: none;
+            }
+            
         }
     }
 }

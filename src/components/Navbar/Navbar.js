@@ -12,12 +12,27 @@ import { Link } from "react-router-dom";
 import { DarkMdeContext } from "../../context/darkModeContext";
 import { useDispatch, useSelector } from "react-redux";
 import { darkMode } from "../../rtk/slices/darkModeSlice";
+import axios from "axios";
 
 function Navbar() {
   // const { dark, toggle } = useContext(DarkMdeContext);
   const dark = useSelector((state) => state.dark.dark);
+  const [search, setSearch] = useState("");
+  const [person, setPerson] = useState([]);
+  useEffect(() => {}, [dark]);
   useEffect(() => {
-  }, [dark]);
+    const getUserSearch = async () => {
+      try {
+        const res = await axios.get("/users/all");
+        const filter = res.data.filter(
+          (e) => e.username.slice(0, search.length) === search && search !== ""
+        );
+        setPerson(filter);
+        console.log(filter);
+      } catch (err) {}
+    };
+    getUserSearch();
+  }, [search]);
 
   const dispatch = useDispatch();
   return (
@@ -45,7 +60,28 @@ function Navbar() {
       <div className="center">
         <div className="search">
           <SearchOutlinedIcon />
-          <input type="text" placeholder="Search ..." />
+          <input
+            type="text"
+            placeholder="Search ..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          {person && (
+            <div className="personSearch">
+              <ul>
+                {person?.map((p) => (
+                  <li
+                    onClick={() => {
+                      setPerson([]);
+                      setSearch("");
+                    }}
+                  >
+                    <Link to={`/profile/${p.username}`}>{p.username}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       </div>
       <div className="right">
