@@ -15,7 +15,7 @@ ul{
 
 body{
   font-family: "Open Sans", sans-serif;
-
+  transition: .4s;
 }
 
 
@@ -35,6 +35,16 @@ body{
 
   }
   .homePage{
+    background-color: #333 !important;
+    .share{
+      background-color: #000 !important;
+      color: #fff !important;
+      input{
+        background-color: #000 !important;
+      }
+    }
+  }
+  .profilePage{
     background-color: #333 !important;
     .share{
       background-color: #000 !important;
@@ -134,3 +144,37 @@ body{
 //     }
 //   }
 // }
+
+
+.infoForm{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.infoInput{
+  border: none;
+  outline: none;
+  background-color: var(--inputColor);
+  border-radius: 8px;
+  padding: 20px;
+  flex:1;
+}
+.button:disabled{
+  background: silver;
+  pointer-events: none;
+}
+.infoForm>div{
+  display: flex;
+  gap: 1rem;
+  height: 2rem;
+  width: 90%;
+}
+
+.infoButton{
+  width: 6rem;
+  height: 2rem;
+  align-self: flex-end;
+}

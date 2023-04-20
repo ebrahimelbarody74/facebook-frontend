@@ -4,7 +4,7 @@
     height: calc(100vh - 57px);
     position: sticky;
     top: 57px;
-    padding: 20px;
+    // padding: 20px;
     &::-webkit-scrollbar {
         display: none;
     }
@@ -65,9 +65,14 @@
     height: calc(100vh - 57px);
     position: sticky;
     top: 57px;
+    padding: 20px;
     &::-webkit-scrollbar {
         display: none;
     }
+  }
+  .rightbarWrapper{
+    padding: 20px;
+    height: 100%;
   }
 
   
@@ -198,3 +203,21 @@
     display: none;
   }
 }
+.theme-dark .rightbar{
+  background-color: #333 !important;
+  .rightBarHome{
+    background-color: #333 !important;
+  }
+  .item{
+  background-color: #000 !important;
+  color: #fff !important;
+  }
+  h4{
+    color: #fff !important;
+  }
+  .rightbarWrapper{
+  background-color: #000 !important;
+
+  }
+}
+

@@ -66,7 +66,7 @@ function HomePage() {
   return (
     <div className="homePage">
       <div className="container">
-        <Stories />
+        {/* <Stories /> */}
         <Share
           file={file}
           setFile={setFile}

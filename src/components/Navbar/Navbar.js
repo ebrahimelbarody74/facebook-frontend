@@ -13,12 +13,15 @@ import { DarkMdeContext } from "../../context/darkModeContext";
 import { useDispatch, useSelector } from "react-redux";
 import { darkMode } from "../../rtk/slices/darkModeSlice";
 import axios from "axios";
+import ProfileModal from "../ProfileModel/ProfileModel";
 
 function Navbar() {
   // const { dark, toggle } = useContext(DarkMdeContext);
   const dark = useSelector((state) => state.dark.dark);
   const [search, setSearch] = useState("");
   const [person, setPerson] = useState([]);
+  const [modalOpened, setModalOpened] = useState(false);
+  const dispatch = useDispatch();
   useEffect(() => {}, [dark]);
   useEffect(() => {
     const getUserSearch = async () => {
@@ -34,7 +37,6 @@ function Navbar() {
     getUserSearch();
   }, [search]);
 
-  const dispatch = useDispatch();
   return (
     <div className="navbar">
       <div className="left">
@@ -86,9 +88,15 @@ function Navbar() {
       </div>
       <div className="right">
         <ul>
-          <li>
+          <li onClick={() => setModalOpened(true)}>
             <PersonOutlinedIcon />
           </li>
+          {modalOpened && (
+            <ProfileModal
+              setModalOpened={setModalOpened}
+              modalOpened={modalOpened}
+            />
+          )}
           <li>
             <EmailOutlinedIcon />
           </li>

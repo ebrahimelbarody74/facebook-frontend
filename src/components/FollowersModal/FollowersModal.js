@@ -19,10 +19,6 @@ function FollowersModal({ modalOpened, setModalOpened }) {
       opened={modalOpened}
       onClose={() => setModalOpened(false)}
     >
-      {/* {suggestions.slice(0, 4).map((person, id) => {
-        if (currentUser._id !== person._id)
-          return <User person={person} key={id} />;
-      })} */}
       <RightBar location="FollowersModal" />
     </Modal>
   );

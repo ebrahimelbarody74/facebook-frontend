@@ -21,6 +21,7 @@ function ProfilePage({ user }) {
   const [posts, setPosts] = useState();
   const [share, setShare] = useState("");
   const [file, setFile] = useState(null);
+  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
   // posts profile
   useEffect(() => {
@@ -37,14 +38,9 @@ function ProfilePage({ user }) {
       }
     };
     setPost();
-    console.log(posts);
-    console.log(username);
   }, [username]);
 
   //share
-  const [followed, setFollowed] = useState(async () => {
-    await setFollowed(user.followers.includes(currentUser._id));
-  });
 
   const handelShare = async () => {
     const newPost = {
@@ -78,6 +74,16 @@ function ProfilePage({ user }) {
     };
     setPost();
   };
+
+  const [followed, setFollowed] = useState();
+
+  useEffect(() => {
+    const a = async () => {
+      const b = await user.followers.includes(currentUser._id);
+      setFollowed(b);
+    };
+    a();
+  }, [user._id]);
 
   const handleClick = async () => {
     try {
@@ -114,15 +120,23 @@ function ProfilePage({ user }) {
       <div className="container">
         <div className="images">
           <img
-            src="https://images.pexels.com/photos/13440765/pexels-photo-13440765.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1260&amp;h=750&amp;dpr=2"
+            src={
+              user.coverPicture
+                ? PF + user.coverPicture
+                : PF + "person/noCover.png"
+            }
             alt=""
             className="cover"
           />
           <img
-            src="https://images.pexels.com/photos/14028501/pexels-photo-14028501.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600&amp;lazy=load"
+            src={
+              user.profilePicture
+                ? PF + user.profilePicture
+                : PF + "person/noAvatar.png"
+            }
             alt=""
             className="profilePic"
-            style={{ marginBottom: "70px" }}
+            style={{ marginBottom: "40px" }}
           />
         </div>
         <div className="profileContainer">
