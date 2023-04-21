@@ -51,7 +51,7 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://facebook-server-lvi9.onrender.com/api",
+  "proxy": "https://facebook-server-lvi9.onrender.com",
   "devDependencies": {
     "resolve-url-loader": "^5.0.0"
   }

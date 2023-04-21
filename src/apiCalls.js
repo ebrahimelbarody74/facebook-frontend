@@ -4,7 +4,7 @@ import { loginStart, loginSuccess, loginFailure } from "./rtk/slices/authSlice";
 export const login = async (dispatch, navigate, api, user) => {
   dispatch(loginStart());
   try {
-    const res = await axios.post(`/auth/${api}`, user);
+    const res = await axios.post(`/api/auth/${api}`, user);
     console.log(res);
     dispatch(loginSuccess(res.data));
     localStorage.setItem("user", JSON.stringify(res.data));
