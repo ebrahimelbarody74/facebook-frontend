@@ -24,14 +24,17 @@ function HomePage() {
       data.append("file", file);
       newPost.img = fileName;
       try {
-        await axios.post("/upload", data);
+        await axios.post(
+          "https://facebook-server-lvi9.onrender.com/api/upload",
+          data
+        );
       } catch (err) {}
     }
     const setPost = async () => {
       if (share !== "") {
         try {
           const res = await axios.post(
-            "http://localhost:8800/api/posts/",
+            "https://facebook-server-lvi9.onrender.com/api/posts/",
             newPost
           );
           setPosts([...posts, res.data]);
@@ -48,7 +51,8 @@ function HomePage() {
     const setPost = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:8800/api/posts/timeline/" + currentUser._id
+          "https://facebook-server-lvi9.onrender.com/api/posts/timeline/" +
+            currentUser._id
         );
         setPosts(
           res.data.sort((p1, p2) => {

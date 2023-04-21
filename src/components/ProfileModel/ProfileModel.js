@@ -41,9 +41,12 @@ const ProfileModal = ({ modalOpened, setModalOpened }) => {
       data.append("file", profilePicture);
       update.profilePicture = fileName;
       try {
-        await axios.post("/upload", data);
+        await axios.post(
+          "https://facebook-server-lvi9.onrender.com/api/upload",
+          data
+        );
       } catch (err) {
-        console.log(err)
+        console.log(err);
       }
     }
     if (coverPicture) {
@@ -53,15 +56,20 @@ const ProfileModal = ({ modalOpened, setModalOpened }) => {
       data.append("file", coverPicture);
       update.coverPicture = fileName;
       try {
-        await axios.post("/upload", data);
+        await axios.post(
+          "https://facebook-server-lvi9.onrender.com/api/upload",
+          data
+        );
       } catch (err) {
-        console.log(err)
+        console.log(err);
       }
     }
     const setPost = async () => {
       try {
         const res = await axios.put(
-          "/users/" + currentUser._id + "/update",
+          "https://facebook-server-lvi9.onrender.com/api/users/" +
+            currentUser._id +
+            "/update",
           update
         );
         console.log(res);

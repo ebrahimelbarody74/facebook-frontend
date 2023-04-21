@@ -10,17 +10,17 @@ function Profile() {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   const [user, setUser] = useState({});
   const username = useParams().username;
-  
+
   useEffect(() => {
     const fetchUser = async () => {
       const res = await axios.get(
-        `http://localhost:8800/api/users?username=${username}`
+        `https://facebook-server-lvi9.onrender.com/api/users?username=${username}`
       );
       setUser(res.data);
     };
     fetchUser();
   }, [username]);
-  
+
   return (
     <div className="profile">
       <Navbar />

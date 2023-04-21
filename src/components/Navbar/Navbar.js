@@ -26,7 +26,9 @@ function Navbar() {
   useEffect(() => {
     const getUserSearch = async () => {
       try {
-        const res = await axios.get("/users/all");
+        const res = await axios.get(
+          "https://facebook-server-lvi9.onrender.com/api/users/all"
+        );
         const filter = res.data.filter(
           (e) => e.username.slice(0, search.length) === search && search !== ""
         );

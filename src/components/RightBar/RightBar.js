@@ -19,7 +19,9 @@ function RightBar({ user, location }) {
   useEffect(() => {
     const getAllUsers = async () => {
       try {
-        const res = await axios.get("/users/all");
+        const res = await axios.get(
+          "https://facebook-server-lvi9.onrender.com/api/users/all"
+        );
         setSuggestions(res.data);
       } catch (err) {}
     };
@@ -30,7 +32,10 @@ function RightBar({ user, location }) {
   useEffect(() => {
     const getFriends = async () => {
       try {
-        const res = await axios.get("/users/friends/" + user._id);
+        const res = await axios.get(
+          "https://facebook-server-lvi9.onrender.com/api/users/friends/" +
+            user._id
+        );
         setFriends(res.data);
       } catch (err) {}
     };

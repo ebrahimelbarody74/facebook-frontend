@@ -13,14 +13,14 @@ function User({ person }) {
     try {
       if (followed) {
         const res = await axios.put(
-          `http://localhost:8800/api/users/${person._id}/unfollow`,
+          `https://facebook-server-lvi9.onrender.com/api/users/${person._id}/unfollow`,
           {
             userId: currentUser._id,
           }
         );
       } else {
         const res = await axios.put(
-          `http://localhost:8800/api/users/${person._id}/follow`,
+          `https://facebook-server-lvi9.onrender.com/api/users/${person._id}/follow`,
           {
             userId: currentUser._id,
           }
@@ -34,7 +34,10 @@ function User({ person }) {
   useEffect(() => {
     const getCurrentUser = async () => {
       try {
-        const res = await axios.get("/users/" + currentUser._id);
+        const res = await axios.get(
+          "https://facebook-server-lvi9.onrender.com/api/users/" +
+            currentUser._id
+        );
         localStorage.setItem("user", JSON.stringify(res.data));
       } catch (err) {}
     };
@@ -56,7 +59,9 @@ function User({ person }) {
       <div className="buttons" onClick={handleClick}>
         <button
           className={
-            followed ? "button fc-button UnfollowButton" : "button followButton fc-button"
+            followed
+              ? "button fc-button UnfollowButton"
+              : "button followButton fc-button"
           }
         >
           {followed ? "Unfollow" : "Follow"}

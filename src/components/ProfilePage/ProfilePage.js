@@ -27,7 +27,10 @@ function ProfilePage({ user }) {
   useEffect(() => {
     const setPost = async () => {
       try {
-        const res = await axios.get("/posts/profile/" + username);
+        const res = await axios.get(
+          "https://facebook-server-lvi9.onrender.com/api/posts/profile/" +
+            username
+        );
         setPosts(
           res.data.sort((p1, p2) => {
             return new Date(p2.createdAt) - new Date(p1.createdAt);
@@ -54,14 +57,17 @@ function ProfilePage({ user }) {
       data.append("file", file);
       newPost.img = fileName;
       try {
-        await axios.post("/upload", data);
+        await axios.post(
+          "https://facebook-server-lvi9.onrender.com/api/upload",
+          data
+        );
       } catch (err) {}
     }
     const setPost = async () => {
       if (share !== "") {
         try {
           const res = await axios.post(
-            "http://localhost:8800/api/posts/",
+            "https://facebook-server-lvi9.onrender.com/api/posts/",
             newPost
           );
           setPosts([...posts, res.data]);
@@ -89,15 +95,18 @@ function ProfilePage({ user }) {
     try {
       if (followed) {
         await axios.put(
-          `http://localhost:8800/api/users/${user._id}/unfollow`,
+          `https://facebook-server-lvi9.onrender.com/api/users/${user._id}/unfollow`,
           {
             userId: currentUser._id,
           }
         );
       } else {
-        await axios.put(`http://localhost:8800/api/users/${user._id}/follow`, {
-          userId: currentUser._id,
-        });
+        await axios.put(
+          `https://facebook-server-lvi9.onrender.com/api/users/${user._id}/follow`,
+          {
+            userId: currentUser._id,
+          }
+        );
       }
       setFollowed((prev) => !prev);
     } catch (err) {
@@ -108,7 +117,10 @@ function ProfilePage({ user }) {
   useEffect(() => {
     const getCurrentUser = async () => {
       try {
-        const res = await axios.get("/users/" + currentUser._id);
+        const res = await axios.get(
+          "https://facebook-server-lvi9.onrender.com/api/users/" +
+            currentUser._id
+        );
         localStorage.setItem("user", JSON.stringify(res.data));
       } catch (err) {}
     };
