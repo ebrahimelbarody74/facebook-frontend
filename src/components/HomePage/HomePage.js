@@ -28,7 +28,9 @@ function HomePage() {
           "https://facebook-server-lvi9.onrender.com/api/upload",
           data
         );
-      } catch (err) {}
+      } catch (err) {
+        console.log(err);
+      }
     }
     const setPost = async () => {
       if (share !== "") {
