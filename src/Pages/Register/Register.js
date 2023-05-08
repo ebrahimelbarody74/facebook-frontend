@@ -20,7 +20,7 @@ function Register() {
     const getUser = async () => {
       try {
         const res = await axios.post(
-          "http://localhost:8800/api/auth/register",
+          "https://facebook-server-lvi9.onrender.com/api/auth/register",
           val
         );
         login(res.data);
