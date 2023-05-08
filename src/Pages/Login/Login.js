@@ -1,8 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.scss";
-import { AuthContext } from "../../context/authContext";
-import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../apiCalls";
 
@@ -19,10 +17,7 @@ function Login() {
       email,
       password,
     };
-    login(dispatch, navigate, "login", {
-      email,
-      password,
-    });
+    login(dispatch, navigate, "login", data);
   };
   return (
     <div className="login">

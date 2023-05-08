@@ -4,6 +4,7 @@ import "./Register.scss";
 import axios from "axios";
 import { AuthContext } from "../../context/authContext";
 import { login } from "../../apiCalls";
+import { useDispatch } from "react-redux";
 
 function Register() {
   // const { login } = useContext(AuthContext);
@@ -11,6 +12,8 @@ function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const handelSubmit = (e) => {
     e.preventDefault();
     const data = {
