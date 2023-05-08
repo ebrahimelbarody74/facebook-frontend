@@ -3,33 +3,22 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Register.scss";
 import axios from "axios";
 import { AuthContext } from "../../context/authContext";
+import { login } from "../../apiCalls";
 
 function Register() {
-  const { login } = useContext(AuthContext);
+  // const { login } = useContext(AuthContext);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const handelSubmit = (e) => {
     e.preventDefault();
-    const val = {
+    const data = {
       username,
       email,
       password,
     };
-    const getUser = async () => {
-      try {
-        const res = await axios.post(
-          "https://facebook-server-lvi9.onrender.com/api/auth/register",
-          val
-        );
-        login(res.data);
-        navigate("/");
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    getUser();
+    login(dispatch, navigate, "register", data);
   };
   return (
     <div className="register">

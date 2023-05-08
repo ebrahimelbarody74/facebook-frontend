@@ -23,8 +23,6 @@ function Login() {
       email,
       password,
     });
-
-
   };
   return (
     <div className="login">
